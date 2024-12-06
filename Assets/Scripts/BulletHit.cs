@@ -16,6 +16,10 @@ public class BulletHit : MonoBehaviour
                 {
                     player.TakeDamage(damage);
                 }
+                else if (player == null)
+                {
+                    Debug.Log("Player komponens nem található!");
+                }
                 Destroy(gameObject);
             }
         }

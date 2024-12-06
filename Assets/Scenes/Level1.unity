@@ -574,6 +574,7 @@ GameObject:
   - component: {fileID: 1168012265}
   - component: {fileID: 1168012264}
   - component: {fileID: 1168012268}
+  - component: {fileID: 1168012269}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -697,7 +698,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 8286603019490557946, guid: 419695157ffacb3489d601a4db05e433, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -738,6 +739,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &1168012269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168012263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d35c16e8c94ce418eca37295fa6275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
 --- !u!1 &1687133437
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,58 +800,13 @@ MonoBehaviour:
   TankEnemyPrefab: {fileID: 8915710360452951895, guid: 7bf5ae2dcfe594348824a02724eaa6cf, type: 3}
   BossEnemyPrefab: {fileID: 0}
   spawnPoint: {fileID: 803619167}
---- !u!1 &2041455771
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2041455773}
-  - component: {fileID: 2041455772}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2041455772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2041455771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f49c633a9a334a647b7203b4ed848ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2041455773
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2041455771}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7257805, y: -0.3608285, z: 0.020580823}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
-  - {fileID: 130320133}
   - {fileID: 1168012267}
-  - {fileID: 2041455773}
+  - {fileID: 130320133}
   - {fileID: 1687133439}
   - {fileID: 803619167}

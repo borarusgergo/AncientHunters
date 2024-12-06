@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,15 +15,17 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else 
         {
             Destroy(gameObject);
+            Debug.Log("GameManager Törölte ezt: " + gameObject.name);
         }
     }
 
     public void PlayerDied()
     {
         Debug.Log("Game Over");
+        GameMenuManager.Instance.ShowGameOverScreen();
     }
 
     public void EnemyDied()
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Ellenség meghalt, élõ ellenségek száma: " +  enemiesAlive);
         if (enemiesAlive <= 0)
         {
+            GameMenuManager.Instance.ShowGameOverScreen();
             Debug.Log("Minden ellenség meghalt! Pálya teljesítve.");
         }
     }

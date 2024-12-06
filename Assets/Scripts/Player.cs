@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("TakeDamage meghívva!");
         health -= damage;
         Debug.Log("Játékos élete: " + health);
         if (health <= 0)

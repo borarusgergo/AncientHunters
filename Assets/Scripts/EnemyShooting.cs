@@ -9,7 +9,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
-       if(Time.time >= nextFireTime)
+       if(GameMenuManager.gameStarted && Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;

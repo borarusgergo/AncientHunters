@@ -11,7 +11,10 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        LoadEnemiesFromJson();
+        if(GameMenuManager.gameStarted)
+        {
+            LoadEnemiesFromJson();
+        }
     }
 
     void LoadEnemiesFromJson()

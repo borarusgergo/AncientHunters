@@ -13,7 +13,15 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(direction *  speed * Time.deltaTime);
+        if(GameMenuManager.gameStarted)
+        {
+            MoveEnemy();
+        }
+    }
+
+    void MoveEnemy()
+    {
+        transform.Translate(direction * speed * Time.deltaTime);
 
         if (Mathf.Abs(transform.position.x - startX) >= moveDistance)
         {
