@@ -9,7 +9,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        if (GameMenuManager.gameStarted && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }

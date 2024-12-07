@@ -5,27 +5,28 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public GameOverScreen GameOverScreen;
+
     private int enemiesAlive = 0;
 
     void Awake()
     {
-        Debug.Log("GameManager betöltött!");
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else 
+        else
         {
             Destroy(gameObject);
-            Debug.Log("GameManager Törölte ezt: " + gameObject.name);
+            Debug.Log("GameManager törölte: " +  gameObject.name);
         }
     }
 
     public void PlayerDied()
     {
         Debug.Log("Game Over");
-        GameMenuManager.Instance.ShowGameOverScreen();
+        SceneManager.LoadScene("GameOver");
     }
 
     public void EnemyDied()
@@ -34,7 +35,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Ellenség meghalt, élõ ellenségek száma: " +  enemiesAlive);
         if (enemiesAlive <= 0)
         {
-            GameMenuManager.Instance.ShowGameOverScreen();
             Debug.Log("Minden ellenség meghalt! Pálya teljesítve.");
         }
     }

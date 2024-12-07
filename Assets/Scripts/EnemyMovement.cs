@@ -13,10 +13,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if(GameMenuManager.gameStarted)
-        {
-            MoveEnemy();
-        }
+        MoveEnemy();
     }
 
     void MoveEnemy()

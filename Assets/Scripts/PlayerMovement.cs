@@ -6,10 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(GameMenuManager.gameStarted)
-        {
-            Move();
-        }
+        Move();
     }
 
     void Move()
