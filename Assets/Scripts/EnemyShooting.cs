@@ -4,7 +4,7 @@ public class EnemyShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float fireRate = 2f;
+    public float fireRate = 2f; //Sebesség késõbb változó type szerint
     public float nextFireTime;
 
     void Update()

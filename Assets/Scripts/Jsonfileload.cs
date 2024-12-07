@@ -11,16 +11,16 @@ public class Position
 [System.Serializable]
 public class EnemyData
 {
-    public string type;
-    public Position position;
+    public string type; //Enemy fajta
+    public Position position; //Enemy pozíció
 }
 
 [System.Serializable]
 public class LevelData
 {
-    public int width;
-    public int height;
-    public Position playerStartPos;
+    public int width; //Pálya szélesség
+    public int height; //Pálya magasság
+    public Position playerStartPos; //Játékos kezdõ pozícó
     public List<EnemyData> enemies;
 }
 

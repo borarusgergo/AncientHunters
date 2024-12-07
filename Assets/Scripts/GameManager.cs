@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("GameManager törölte: " +  gameObject.name);
+            //
         }
     }
 
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         if (enemiesAlive <= 0)
         {
             Debug.Log("Minden ellenség meghalt! Pálya teljesítve.");
+            SceneManager.LoadScene("GameOver"); //Késõbb következõ pálya/level select screen
         }
     }
     
