@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -17,7 +18,10 @@ public class EnemySpawner : MonoBehaviour
     void LoadEnemiesFromJson()
     {
         // Betöltjük a JSON fájlt a Resources mappából
-        TextAsset jsonFile = Resources.Load<TextAsset>("level1");
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+        string SceneAsString = currentSceneIndex.ToString();
+
+        TextAsset jsonFile = Resources.Load<TextAsset>("level"+currentSceneIndex);
 
         if (jsonFile != null)
         {
