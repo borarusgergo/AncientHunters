@@ -11,7 +11,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void RetryButton()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level1");
     }
 
     public void MainManuButton()

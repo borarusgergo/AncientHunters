@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public GameOverScreen GameOverScreen;
 
     private int enemiesAlive = 0;
+    
+    
 
     void Awake()
     {
@@ -24,6 +26,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void LoadNextLevel()
+    {
+        // A következõ pálya betöltése
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("Nincs több pálya!"); // Hibaüzenet, ha nincs több pálya
+        }
+    }
+
     public void PlayerDied()
     {
         Debug.Log("Game Over");
@@ -37,7 +55,8 @@ public class GameManager : MonoBehaviour
         if (enemiesAlive <= 0)
         {
             Debug.Log("Minden ellenség meghalt! Pálya teljesítve.");
-            SceneManager.LoadScene("GameOver"); //Késõbb következõ pálya/level select screen
+            LoadNextLevel(); //Következõ pálya
+            
         }
     }
     
@@ -45,4 +64,8 @@ public class GameManager : MonoBehaviour
     {
         enemiesAlive++;
     }
+
+    
+
+
 }
