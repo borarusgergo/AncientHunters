@@ -7,7 +7,7 @@ public class PlayerShooting : MonoBehaviour
     public Transform firePoint;
     public float bulletSpeed = 10f;
 
-    void Update()
+    public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -15,7 +15,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
