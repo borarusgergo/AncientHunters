@@ -20,7 +20,7 @@ Miután legyőzik az ellenséget és megszerzik az utolsó darabot, visszatérne
 
 ## A játék működése
 
-A játkos a main menűből elindítja a játékot és betölti az első pályát. Ha legyőzte az összes ellenséget akkor a következő pályát betölti. Ha az ellenségek megölik a játékost akkor vége a játéknak és kezdheti elölről.
+A játékos a main menűből elindítja a játékot és betölti az első pályát. Ha legyőzte az összes ellenséget akkor a következő pályát betölti. Ha az ellenségek megölik a játékost akkor vége a játéknak és kezdheti elölről.
 
 ## Technikai Specifikációk
 
