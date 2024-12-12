@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using System.Collections;
 
-
-
 public class MainMenuTest
 {
     private GameObject mainMenuObject;
@@ -14,7 +12,7 @@ public class MainMenuTest
     [SetUp]
     public void Setup()
     {
-        // Create a new GameObject and attach the MainMenu script
+        // Elõkészítés: Új GameObject létrehozása és a MainMenu script hozzárendelése
         mainMenuObject = new GameObject("MainMenu");
         mainMenu = mainMenuObject.AddComponent<MainMenu>();
     }
@@ -22,36 +20,36 @@ public class MainMenuTest
     [TearDown]
     public void Teardown()
     {
-        // Destroy the created GameObject after each test
+        // Takarítás: A létrehozott GameObject eltávolítása minden teszt után
         Object.Destroy(mainMenuObject);
     }
 
     [UnityTest]
     public IEnumerator StartGame_CallsSceneManagerLoadScene()
     {
-        // Arrange: Create a mock scene name for testing
+        // Elõkészítés: Teszteléshez egy álnév a jelenethez
         string testSceneName = "Level1";
 
-        // Act: Call the StartGame method and simulate loading the scene asynchronously
+        // Akció: A StartGame metódus meghívása és a jelenet betöltésének szimulálása aszinkron módon
         mainMenu.StartGame();
 
-        // Wait until the scene has loaded
+        // Várakozás: A teszt, hogy a jelenet betöltõdése befejezõdött-e
         yield return new WaitUntil(() => SceneManager.GetActiveScene().name == testSceneName);
 
-        // Assert: Verify if SceneManager.LoadScene was called with the correct scene
-        Assert.AreEqual(testSceneName, SceneManager.GetActiveScene().name, "The scene should switch to the correct level.");
+        // Ellenõrzés: Megerõsítjük, hogy a SceneManager.LoadScene a megfelelõ jelenetet töltötte be
+        Assert.AreEqual(testSceneName, SceneManager.GetActiveScene().name, "A jelenetnek a megfelelõ szintre kell váltania.");
     }
 
     [Test]
     public void QuitButton_CallsApplicationQuit()
     {
-        // Arrange: Expect a log message (since Application.Quit doesn't execute in the editor)
+        // Elõkészítés: Várunk egy log üzenetre (mivel az Application.Quit nem fut le a szerkesztõben)
         LogAssert.Expect(LogType.Log, "Kilépés...");
 
-        // Act: Call the QuitButton method
+        // Akció: A QuitButton metódus meghívása
         mainMenu.QuitButton();
 
-        // Assert: Check if the log was triggered
+        // Ellenõrzés: Ellenõrizzük, hogy a log üzenet meg lett-e hívva
         LogAssert.NoUnexpectedReceived();
     }
 }
