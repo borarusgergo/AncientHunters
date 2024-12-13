@@ -4,6 +4,11 @@ public class BulletHit : MonoBehaviour
 {
     public int damage = 1;
 
+    public void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

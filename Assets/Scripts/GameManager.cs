@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
 
     private int enemiesAlive = 0;
     
-    
-
     void Awake()
     {
         if (Instance == null)
@@ -22,7 +20,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("GameManager törölte: " +  gameObject.name);
-            //
         }
     }
 
@@ -52,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         enemiesAlive--;
         Debug.Log("Ellenség meghalt, élõ ellenségek száma: " +  enemiesAlive);
+
         if (enemiesAlive <= 0)
         {
             Debug.Log("Minden ellenség meghalt! Pálya teljesítve.");
