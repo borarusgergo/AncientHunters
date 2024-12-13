@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,8 @@ public class GameManager : MonoBehaviour
     public GameOverScreen GameOverScreen;
 
     private int enemiesAlive = 0;
-    
+    public float delayBeforeNextLevel = 1f;
+
     void Awake()
     {
         if (Instance == null)
@@ -53,17 +55,18 @@ public class GameManager : MonoBehaviour
         if (enemiesAlive <= 0)
         {
             Debug.Log("Minden ellenség meghalt! Pálya teljesítve.");
-            LoadNextLevel(); //Következõ pálya
-            
+            StartCoroutine(LoadNextLevelWithDelay());
         }
+    }
+
+    private IEnumerator LoadNextLevelWithDelay()
+    {
+        yield return new WaitForSeconds(delayBeforeNextLevel);
+        LoadNextLevel();
     }
     
     public void AddEnemy()
     {
         enemiesAlive++;
     }
-
-    
-
-
 }

@@ -31,8 +31,6 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         MoveEnemy();
-        Debug.Log("Ellenség pozíció Y: " + transform.position.y);
-        Debug.Log("GameOverThreshold: " + gameOverThreshold);
 
         if(transform.position.y <= gameOverThreshold)
         {
@@ -45,18 +43,19 @@ public class EnemyMovement : MonoBehaviour
     {
         transform.Translate(direction * speed * Time.deltaTime);
 
+        /* Ha még kellene a moveDistance de mostmár faltol falig mozognak az enemyk
         if (Mathf.Abs(transform.position.x - startX) >= moveDistance)
         {
             //Lefele mozgás
             direction *= -1; //írány fordítás
             transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
-
             startX = transform.position.x;
+        }*/
+        //Képernyõ szélén lefelemozog és irányt vált
+        if (transform.position.x <= -screenBounds.x + objectWidth || transform.position.x >= screenBounds.x - objectWidth)
+        {
+            direction *= -1;
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
         }
-
-        Vector3 position = transform.position;
-        position.x = Mathf.Clamp(position.x, -screenBounds.x + objectWidth, screenBounds.x - objectWidth);
-
-        transform.position = position;
     }
 }

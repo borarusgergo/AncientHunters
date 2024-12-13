@@ -808,6 +808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  acceleration: 50
+  deceleration: 10
 --- !u!95 &1168012270
 Animator:
   serializedVersion: 7

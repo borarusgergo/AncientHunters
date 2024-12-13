@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  moveDistance: 5
+  moveDistance: 10
   gameOverThreshold: -3
 --- !u!95 &-4639670663828386725
 Animator:

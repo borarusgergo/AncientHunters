@@ -47,6 +47,13 @@ public class Enemy : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
+        //Collider kikapcsolása halál után
+        Collider2D collider = GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
+
         if (OnDied != null)
         {
             OnDied.Invoke();
@@ -54,6 +61,6 @@ public class Enemy : MonoBehaviour
         }
         Debug.Log("Ellenség meghalt!");
         GameManager.Instance.EnemyDied();
-        Destroy(gameObject,1f); //Animáció miatt delay kell bele, ezért van az isDead bool ezt biztos jobban is meg lehet oldani de így is mûködik
+        Destroy(gameObject,1f); //A delay az animáció miatt van ott
     }
 }

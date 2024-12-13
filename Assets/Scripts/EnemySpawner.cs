@@ -34,6 +34,10 @@ public class EnemySpawner : MonoBehaviour
                 Debug.Log("Szélesség: " + levelWrapper.levelData.width + ", Magasság: " + levelWrapper.levelData.height);
                 Debug.Log("Játékos kezdõpozíció: (" + levelWrapper.levelData.playerStartPos.x + ", " + levelWrapper.levelData.playerStartPos.y + ")");
 
+                //A képernyõ szélességének lekérése
+                Camera mainCamera = Camera.main;
+                Vector2 screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
+
                 // Ellenségek spawnolása
                 foreach (var enemyData in levelWrapper.levelData.enemies)
                 {
@@ -60,7 +64,8 @@ public class EnemySpawner : MonoBehaviour
                     // Ha megtaláltuk a prefab-ot, spawnoljuk
                     if (prefabToSpawn != null)
                     {
-                        Vector3 spawnPosition = new Vector3(enemyData.position.x, enemyData.position.y, 0f);
+                        float xPos = Mathf.Lerp(-screenBounds.x + 1f, screenBounds.x - 1f, enemyData.position.x / (float)levelWrapper.levelData.width);
+                        Vector3 spawnPosition = new Vector3(xPos, enemyData.position.y, 0f);
                         Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
 
                         GameManager.Instance.AddEnemy();

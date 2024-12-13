@@ -3,10 +3,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour 
 {
     public float speed = 5f;
+    public float acceleration = 10f;
+    public float deceleration = 10f;
 
     private Vector2 screenBounds;
     private float objectWidth;
     private float objectHeight;
+    private float currentVelocity = 0f;
 
     void Start()
     {
@@ -29,7 +32,17 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        transform.Translate(Vector2.right * horizontal * speed * Time.deltaTime);
+        //Gyorsulás és lassulás
+        if (horizontal != 0)
+        {
+            currentVelocity = Mathf.MoveTowards(currentVelocity, horizontal * speed, acceleration * Time.deltaTime);
+        }
+        else
+        {
+            currentVelocity = Mathf.MoveTowards(currentVelocity, 0, deceleration * Time.deltaTime);
+        }
+
+        transform.Translate(Vector2.right * currentVelocity * Time.deltaTime);
 
         //Mozgás korlátozása
         Vector3 position = transform.position;
