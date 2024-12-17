@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ANCIENT-HUNTERS1_0: -2567383578968889227
+      ANCIENT-HUNTERS1_1: 8134576153137098616
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

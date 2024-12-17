@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+
     public GameOverScreen GameOverScreen;
 
     private int enemiesAlive = 0;
@@ -21,13 +22,13 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            Debug.Log("GameManager törölte: " +  gameObject.name);
+            Debug.Log("GameManager tï¿½rï¿½lte: " +  gameObject.name);
         }
     }
 
     void LoadNextLevel()
     {
-        // A következõ pálya betöltése
+        // A kï¿½vetkezï¿½ pï¿½lya betï¿½ltï¿½se
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
 
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Nincs több pálya!"); // Hibaüzenet, ha nincs több pálya
+            Debug.Log("Nincs tï¿½bb pï¿½lya!"); // Hibaï¿½zenet, ha nincs tï¿½bb pï¿½lya
         }
     }
 
@@ -50,11 +51,11 @@ public class GameManager : MonoBehaviour
     public void EnemyDied()
     {
         enemiesAlive--;
-        Debug.Log("Ellenség meghalt, élõ ellenségek száma: " +  enemiesAlive);
+        Debug.Log("Ellensï¿½g meghalt, ï¿½lï¿½ ellensï¿½gek szï¿½ma: " +  enemiesAlive);
 
         if (enemiesAlive <= 0)
         {
-            Debug.Log("Minden ellenség meghalt! Pálya teljesítve.");
+            Debug.Log("Minden ellensï¿½g meghalt! Pï¿½lya teljesï¿½tve.");
             StartCoroutine(LoadNextLevelWithDelay());
         }
     }
