@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private int enemiesAlive = 0;
     public float delayBeforeNextLevel = 1f;
 
+    public string lastSceneName;
+
     void Awake()
     {
         if (Instance == null)
@@ -22,13 +24,13 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            Debug.Log("GameManager t�r�lte: " +  gameObject.name);
+            Debug.Log("GameManager törölte: " +  gameObject.name);
         }
     }
 
     void LoadNextLevel()
     {
-        // A k�vetkez� p�lya bet�lt�se
+        // A következő pálya betöltése
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
 
@@ -38,12 +40,18 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Nincs t�bb p�lya!"); // Hiba�zenet, ha nincs t�bb p�lya
+            Debug.Log("Nincs több pálya!"); // Hibaüzenet, ha nincs több pálya
         }
     }
 
     public void PlayerDied()
     {
+        //Az aktuális jelent nevét elmentjük
+        lastSceneName = SceneManager.GetActiveScene().name;
+
+        //Az ellensége számának alaphelyzetbe állítása halál után
+        ResetEnemyCount();
+
         Debug.Log("Game Over");
         SceneManager.LoadScene("GameOver");
     }
@@ -51,11 +59,11 @@ public class GameManager : MonoBehaviour
     public void EnemyDied()
     {
         enemiesAlive--;
-        Debug.Log("Ellens�g meghalt, �l� ellens�gek sz�ma: " +  enemiesAlive);
+        Debug.Log("Ellenség meghalt, élő ellenségek száma: " +  enemiesAlive);
 
         if (enemiesAlive <= 0)
         {
-            Debug.Log("Minden ellens�g meghalt! P�lya teljes�tve.");
+            Debug.Log("Minden ellenség meghalt! Pálya teljesítve.");
             StartCoroutine(LoadNextLevelWithDelay());
         }
     }
@@ -69,5 +77,10 @@ public class GameManager : MonoBehaviour
     public void AddEnemy()
     {
         enemiesAlive++;
+    }
+
+    private void ResetEnemyCount()
+    {
+        enemiesAlive = 0;
     }
 }

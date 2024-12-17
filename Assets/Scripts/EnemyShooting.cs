@@ -6,6 +6,7 @@ public class EnemyShooting : MonoBehaviour
     public Transform firePoint;
     public float fireRate = 2f; //Sebesség késõbb változó type szerint
     public float nextFireTime;
+    public float enemyBulletSpeed = 5f;
 
     void Update()
     {
@@ -24,7 +25,7 @@ public class EnemyShooting : MonoBehaviour
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             if (rb != null )
             {
-                rb.linearVelocity = Vector2.down * 5f;
+                rb.linearVelocity = Vector2.down * enemyBulletSpeed;
             }
         }
         else

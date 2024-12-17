@@ -11,7 +11,14 @@ public class GameOverScreen : MonoBehaviour
 
     public void RetryButton()
     {
-        SceneManager.LoadScene("Level1");
+        if (!string.IsNullOrEmpty(GameManager.Instance.lastSceneName))
+        {
+            SceneManager.LoadScene(GameManager.Instance.lastSceneName);
+        }
+        else
+        {
+            Debug.LogError("Nem található az elõzõ jelenet neve!");
+        }
     }
 
     public void MainManuButton()

@@ -14,4 +14,9 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Game scene meghívva");
         SceneManager.LoadScene("Level1");
     }
+
+    public void LevelSelect()
+    {
+        SceneManager.LoadScene("LevelSelect");
+    }
 }
