@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public EnemyType type;
     public int health;
-    private bool isDead = false;
+    public bool isDead = false;
 
     void Start()
     {
@@ -52,6 +52,18 @@ public class Enemy : MonoBehaviour
         if (collider != null)
         {
             collider.enabled = false;
+            Debug.Log("Collider kikapcsolva!");
+        }
+
+        EnemyShooting shooting = GetComponentInChildren<EnemyShooting>();
+        if (shooting == null)
+        {
+            Debug.LogError("EnemyShooting komponens nincs");
+        }
+        else
+        {
+            shooting.canShoot = false;
+            Debug.Log("Nem lõhet az enemy!");
         }
 
         if (OnDied != null)

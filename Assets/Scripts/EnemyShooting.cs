@@ -7,10 +7,11 @@ public class EnemyShooting : MonoBehaviour
     public float fireRate = 2f; //Sebesség késõbb változó type szerint
     public float nextFireTime;
     public float enemyBulletSpeed = 5f;
+    public bool canShoot = true;
 
     void Update()
     {
-       if(Time.time >= nextFireTime)
+        if (Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
@@ -19,7 +20,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Shoot()
     {
-        if (bulletPrefab != null && firePoint != null)
+        if (bulletPrefab != null && firePoint != null && canShoot)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

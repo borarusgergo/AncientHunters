@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   health: 1
+  isDead: 0
   OnDied:
     m_PersistentCalls:
       m_Calls:
@@ -336,3 +337,5 @@ MonoBehaviour:
   firePoint: {fileID: 3356020004120167238}
   fireRate: 2
   nextFireTime: 0
+  enemyBulletSpeed: 5
+  canShoot: 1

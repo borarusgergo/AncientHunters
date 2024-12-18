@@ -13,6 +13,7 @@ public class GameOverScreen : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(GameManager.Instance.lastSceneName))
         {
+            GameManager.globalSpeedMulitplier = 1f;
             SceneManager.LoadScene(GameManager.Instance.lastSceneName);
         }
         else

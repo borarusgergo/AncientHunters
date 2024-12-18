@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
+    public static float globalSpeedMulitplier = 1f; //Globális sebesség szorzó
 
     public GameOverScreen GameOverScreen;
 
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         // A következő pálya betöltése
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
+        globalSpeedMulitplier = 1f; //Sebesség szorzó viszaállítása új jelenet betöltése előtt
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
@@ -61,9 +62,16 @@ public class GameManager : MonoBehaviour
         enemiesAlive--;
         Debug.Log("Ellenség meghalt, élő ellenségek száma: " +  enemiesAlive);
 
+        globalSpeedMulitplier += 0.1f;
+
         if (enemiesAlive <= 0)
         {
             Debug.Log("Minden ellenség meghalt! Pálya teljesítve.");
+            Player player = FindAnyObjectByType<Player>();
+            if (player != null)
+            {
+                player.isImmortal = true;
+            }
             StartCoroutine(LoadNextLevelWithDelay());
         }
     }

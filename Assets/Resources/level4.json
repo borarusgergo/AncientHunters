@@ -1,0 +1,13 @@
+{
+    "levelData": {
+        "width": 10,
+        "height": 5,
+        "playerStartPos": {
+            "x": 5,
+            "y": 0
+        },
+        "enemies": [
+            { "type": "Boss", "position": { "x": 5, "y": 4 } }
+        ]
+    }
+}

@@ -105,6 +105,7 @@ MonoBehaviour:
   fireRate: 1
   nextFireTime: 0
   enemyBulletSpeed: 5
+  canShoot: 1
 --- !u!1 &8915710360452951895
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   health: 3
+  isDead: 0
   OnDied:
     m_PersistentCalls:
       m_Calls:

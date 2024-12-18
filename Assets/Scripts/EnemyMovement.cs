@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 screenBounds;
     private float objectWidth;
     private float objectHeight;
+    private bool hasBounced = false;
 
     void Start()
     {
@@ -41,7 +42,7 @@ public class EnemyMovement : MonoBehaviour
 
     void MoveEnemy()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(direction * speed * GameManager.globalSpeedMulitplier *Time.deltaTime);
 
         /* Ha még kellene a moveDistance de mostmár faltol falig mozognak az enemyk
         if (Mathf.Abs(transform.position.x - startX) >= moveDistance)
@@ -54,8 +55,16 @@ public class EnemyMovement : MonoBehaviour
         //Képernyõ szélén lefelemozog és irányt vált
         if (transform.position.x <= -screenBounds.x + objectWidth || transform.position.x >= screenBounds.x - objectWidth)
         {
-            direction *= -1;
-            transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+            if (!hasBounced)
+            {
+                direction *= -1;
+                transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+                hasBounced = true;
+            }
+        }
+        else
+        {
+            hasBounced = false;
         }
     }
 }
