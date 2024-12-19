@@ -61,7 +61,6 @@ public class GameManager : MonoBehaviour
     {
         enemiesAlive--;
         Debug.Log("Ellenség meghalt, élő ellenségek száma: " +  enemiesAlive);
-
         globalSpeedMulitplier += 0.1f;
 
         if (enemiesAlive <= 0)

@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BasicEnemyPrefab: {fileID: 0}
-  TankEnemyPrefab: {fileID: 0}
+  TankEnemyPrefab: {fileID: 8915710360452951895, guid: 7bf5ae2dcfe594348824a02724eaa6cf, type: 3}
   BossEnemyPrefab: {fileID: 8062829298809890848, guid: 0aa4c687d9771f74aaaf0882f93b2949, type: 3}
   spawnPoint: {fileID: 423255227}
 --- !u!4 &1964453531

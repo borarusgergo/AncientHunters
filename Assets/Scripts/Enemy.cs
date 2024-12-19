@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public EnemyType type;
     public int health;
     public bool isDead = false;
+    public int damageOnCollision = 1;
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
                 health = 3;
                 break;
             case EnemyType.Boss:
-                health = 10;
+                health = 15;
                 break;
             default:
                 health = 1;
@@ -29,6 +30,21 @@ public class Enemy : MonoBehaviour
     }
 
     public UnityEvent OnDied;
+
+    //Ütközés a játékossal
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            Player player = collision.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamage(damageOnCollision);
+            }
+            //Ütközés után meghal az ellenfél
+            Die();
+        }
+    }
 
     public void TakeDamage(int damage)
     {

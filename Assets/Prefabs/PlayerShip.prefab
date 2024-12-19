@@ -213,7 +213,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &5101338828111755723
 Rigidbody2D:
@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 4
   currentHealth: 0
+  isImmortal: 0
   healthBar: {fileID: 5566226361757755313}
 --- !u!1 &3925485256705949386
 GameObject:

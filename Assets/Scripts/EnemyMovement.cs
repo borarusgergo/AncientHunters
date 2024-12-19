@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 2f; //Sebesség késõbb változó type szerint
-    public float moveDistance = 5f;
-    public float gameOverThreshold = -5f; //Ez a képernyõ alja, ennél feljebb vettem mert az utolsó sorban nem lehet megölni az ellenfelet
+    public float gameOverThreshold = -5f; //Ez a képernyõ alja, ha ezt eléri Game Over
+    public float downMovement = 1f; //Lefelé mozgás
 
     private Vector2 direction = Vector2.right;
     private float startX;
@@ -44,21 +44,13 @@ public class EnemyMovement : MonoBehaviour
     {
         transform.Translate(direction * speed * GameManager.globalSpeedMulitplier *Time.deltaTime);
 
-        /* Ha még kellene a moveDistance de mostmár faltol falig mozognak az enemyk
-        if (Mathf.Abs(transform.position.x - startX) >= moveDistance)
-        {
-            //Lefele mozgás
-            direction *= -1; //írány fordítás
-            transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
-            startX = transform.position.x;
-        }*/
         //Képernyõ szélén lefelemozog és irányt vált
         if (transform.position.x <= -screenBounds.x + objectWidth || transform.position.x >= screenBounds.x - objectWidth)
         {
             if (!hasBounced)
             {
                 direction *= -1;
-                transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y - downMovement, transform.position.z);
                 hasBounced = true;
             }
         }

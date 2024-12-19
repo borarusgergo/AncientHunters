@@ -105,6 +105,7 @@ MonoBehaviour:
   fireRate: 1
   nextFireTime: 0
   enemyBulletSpeed: 5
+  canShoot: 1
 --- !u!1 &2006450439729135108
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +211,7 @@ MonoBehaviour:
   fireRate: 0.5
   nextFireTime: 0
   enemyBulletSpeed: 5
+  canShoot: 1
 --- !u!1 &2220107159146130868
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,9 +314,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3229706947245172183, guid: b6340814a2163e047906faf24bdd20f9, type: 3}
   firePoint: {fileID: 6654580173398834505}
-  fireRate: 0.66
+  fireRate: 2
   nextFireTime: 0
   enemyBulletSpeed: 5
+  canShoot: 1
 --- !u!1 &6299048057185159538
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +423,7 @@ MonoBehaviour:
   fireRate: 1
   nextFireTime: 0
   enemyBulletSpeed: 5
+  canShoot: 1
 --- !u!1 &7101318222379546439
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +529,7 @@ MonoBehaviour:
   fireRate: 1
   nextFireTime: 0
   enemyBulletSpeed: 5
+  canShoot: 1
 --- !u!1 &7763621569644387851
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +635,7 @@ MonoBehaviour:
   fireRate: 1
   nextFireTime: 0
   enemyBulletSpeed: 5
+  canShoot: 1
 --- !u!1 &8062829298809890848
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +822,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   health: 15
+  isDead: 0
+  damageOnCollision: 1
   OnDied:
     m_PersistentCalls:
       m_Calls:
@@ -844,8 +852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  moveDistance: 3
   gameOverThreshold: -5
+  downMovement: 2
 --- !u!95 &-8203471540996423522
 Animator:
   serializedVersion: 7
@@ -970,6 +978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3229706947245172183, guid: b6340814a2163e047906faf24bdd20f9, type: 3}
   firePoint: {fileID: 3663465823811219403}
-  fireRate: 0.66
+  fireRate: 2
   nextFireTime: 0
   enemyBulletSpeed: 5
+  canShoot: 1

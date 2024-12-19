@@ -181,6 +181,7 @@ MonoBehaviour:
   type: 0
   health: 1
   isDead: 0
+  damageOnCollision: 1
   OnDied:
     m_PersistentCalls:
       m_Calls:
@@ -209,8 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  moveDistance: 10
-  gameOverThreshold: -3
+  gameOverThreshold: -5
+  downMovement: 0.5
 --- !u!95 &-4639670663828386725
 Animator:
   serializedVersion: 7
